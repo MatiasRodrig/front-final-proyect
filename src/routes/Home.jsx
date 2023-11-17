@@ -4,6 +4,7 @@ import Collection from '../components/StylishCollection'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
+import Products from './Products';
 
 function Home() {
     return <>
@@ -15,6 +16,7 @@ function Home() {
         <div className="stylish-collection">
             <Collection />
         </div>
+        <Products/>
         <Footer />
     </>;
 }
