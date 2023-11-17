@@ -1,15 +1,19 @@
 import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
-import Home from './routes/Home'
-import About from './routes/About'
+import Footer from './components/Footer';
+
+import Home from './routes/Home';
+import About from './routes/About';
 import Contact from './routes/Contact';
-import Login from './routes/Login'
-import Register from './routes/Register'
-import Footer from './components/Footer'
-import './styles/App.css'
+import Login from './routes/Login';
+import Register from './routes/Register';
+// import Cart from ...
 
+import AuthRoute from './routes/AuthRoute';
 
+import './styles/App.css';
 
 function App() {
   const router = createBrowserRouter([
@@ -37,7 +41,15 @@ function App() {
       path: "/register",
       element: <Register />
     },
-
+    // RUTA AUTENTICADA
+    {
+      path: '/cart',
+      element: (
+        <AuthRoute>
+          <Route path="/cart" element={<Cart />} />
+        </AuthRoute>
+      )
+    },
   ])
 
   return (
