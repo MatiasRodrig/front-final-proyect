@@ -38,9 +38,9 @@ const NavBarLoggedIn = () => {
 
     const signOut = () => {
         console.log('Sign out clicked');
-        const token = window.localStorage.getItem('token');
+        const token = window.sessionStorage.getItem('token');
         if (token) {
-            window.localStorage.removeItem('token');
+            window.sessionStorage.removeItem('token');
         }
         navigate('/login');
     }
