@@ -9,7 +9,7 @@ import About from './routes/About';
 import Contact from './routes/Contact';
 import Login from './routes/Login';
 import Register from './routes/Register';
-// import Cart from ...
+import Cart from './routes/Cart';
 
 import AuthRoute from './routes/AuthRoute';
 

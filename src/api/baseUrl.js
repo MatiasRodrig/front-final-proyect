@@ -1,5 +1,9 @@
 import axios from "axios";
 
+/* axios.defaults.withCredentials = true;
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'; */
+
 const BASEURL = axios.create({
     baseURL: "https://e-commerce-api-bwhg.onrender.com/api",
     headers: {
@@ -19,5 +23,6 @@ BASEURL.interceptors.request.use(
       return Promise.reject(error);
     }
 )
+
 
 export default BASEURL

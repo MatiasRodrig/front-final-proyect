@@ -63,7 +63,7 @@ function Products() {
                     <Card sx={{ maxWidth: 345, maxHeight: 345 }}>
                         <CardMedia
                             sx={{ height: 140 }}
-                            image="https://target.scene7.com/is/image/Target/GUEST_8d80b7b0-7a6b-40f6-8fc7-edeb7656d79f?wid=488&hei=488&fmt=pjpeg"
+                            image={producto.image}
                             title={producto.name}
                         />
                         <CardContent>

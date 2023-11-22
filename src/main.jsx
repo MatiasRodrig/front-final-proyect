@@ -11,6 +11,7 @@ import Products from './routes/Products'
 
 import './styles/index.css';
 import './styles/App.css'
+import Cart from './routes/Cart';
 
     const router = createBrowserRouter([
         {
@@ -46,6 +47,12 @@ import './styles/App.css'
         {
             path: "/products",
             element: <Products />,
+            errorElement: <h1>Error</h1>
+        },
+
+        {
+            path: "/cart",
+            element: <Cart />,
             errorElement: <h1>Error</h1>
         }
 

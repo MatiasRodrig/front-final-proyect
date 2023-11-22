@@ -14,6 +14,14 @@ const signIn = (email, password) => BASEURL.post(`/auth/signin`, {
     password,
 });
 
+// TRAER DATOS USUARIO LOGUEADO
+const getUserLoggedIn = () => BASEURL.get("/user/me", {
+  headers: {
+    Authorization: `Bearer ${window.localStorage.getItem('token')}`,
+  },
+});
+
+
 // TRAER LISTA PRODUCTOS
 const getProducts = () => BASEURL.get(`/product/`);
 
@@ -41,8 +49,10 @@ const deleteCart = (cartId) => BASEURL.delete(`/cart/remove/${cartId}`);
 export {
     signUp,
     signIn,
+    getUserLoggedIn,
     getProducts,
     getProductById,
+    addProductToCart,
     getCart,
     updateCart,
     deleteCart,
