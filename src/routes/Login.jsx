@@ -20,7 +20,7 @@ const Login = () => {
   const SignInFunction = () => {
     signIn(email, password)
       .then((res) => {
-        window.localStorage.setItem('token', res.data.token);
+        window.sessionStorage.setItem('token', res.data.token);
         navigate('/cart');
       })
     .catch ((error) => {

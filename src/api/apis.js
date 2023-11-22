@@ -17,7 +17,7 @@ const signIn = (email, password) => BASEURL.post(`/auth/signin`, {
 // TRAER DATOS USUARIO LOGUEADO
 const getUserLoggedIn = () => BASEURL.get("/user/me", {
   headers: {
-    Authorization: `Bearer ${window.localStorage.getItem('token')}`,
+    Authorization: `Bearer ${window.sessionStorage.getItem('token')}`,
   },
 });
 
