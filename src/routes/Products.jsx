@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router';
 
-import { Card, CardActions, CardContent, CardMedia, Button, Typography, Grid } from '@mui/material';
+import { Card, CardActions, CardContent, CardMedia, Button, Typography, Grid, Pagination, PaginationItem } from '@mui/material';
 
 import { getProducts } from '../api/apis.js';
 
@@ -12,25 +13,32 @@ function Products() {
     const [filterList, setFilterList] = useState([]);
     const [categoria, setCategoria] = useState('');
 
+    const [count, setCount] = useState(0);
+
+    const location = useLocation();
+    const query = new URLSearchParams(location.search);
+    const page = parseInt(query.get('pagina') || '1', 10);
+
     const getProductList = async () => {
         await getProducts()
             .then((res) => {
                 setProductos(res.data);
                 setFilterList(res.data);
+                setCount(res.data.length);
             });
     }
 
     useEffect(() => {
         getProductList();
-    }, []);
+    }, [page]);
 
     useEffect(() => {
         console.log(categoria)
         setFilterList(productos.filter(producto => producto.category.includes(categoria)));
     }, [categoria]);
-    
+
     console.log(filterList)
-    
+
     const disponibilidad = (producto) => {
         if (producto.stockQuantity > 0) {
             return <div>Hay productos disponibles</div>;
@@ -48,7 +56,8 @@ function Products() {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: "center",
-                    alignItems: "center"
+                    alignItems: "center",
+                    background: "linear-gradient(241deg, rgba(237,241,250,1) 81%, rgba(226,174,234,1) 96%)"
                 }}
             >
                 <Grid item
@@ -157,7 +166,7 @@ function Products() {
                         gap: 4
                     }}
                 >
-                    {filterList.map((producto) => (
+                    {filterList.slice((page - 1) * 12, page * 12).map((producto) => (
                         <Grid item
                             key={producto._id}
                         >
@@ -198,6 +207,24 @@ function Products() {
                         </Grid>
                     ))}
                 </Grid>
+                <Pagination
+                    sx={{
+                        padding: ".7em",
+                        borderTop: "1px solid rgb(225, 225, 225)",
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "flex-end",
+                    }}
+                    page={page}
+                    count={Math.ceil(count / 12)}
+                    renderItem={(item) => (
+                        <PaginationItem
+                            component={Link}
+                            to={`${item.page === 1 ? "" : `?pagina=${item.page}`}`}
+                            {...item}
+                        />
+                    )}
+                />
             </Grid>
         </>
     );
