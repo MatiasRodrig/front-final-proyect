@@ -9,11 +9,14 @@ import { getProducts } from '../api/apis.js';
 
 function Products() {
     const [productos, setProductos] = useState([]);
+    const [filterList, setFilterList] = useState([]);
+    const [categoria, setCategoria] = useState('');
 
     const getProductList = async () => {
         await getProducts()
             .then((res) => {
                 setProductos(res.data);
+                setFilterList(res.data);
             });
     }
 
@@ -21,8 +24,13 @@ function Products() {
         getProductList();
     }, []);
 
-    //console.log(productos);
-
+    useEffect(() => {
+        console.log(categoria)
+        setFilterList(productos.filter(producto => producto.category.includes(categoria)));
+    }, [categoria]);
+    
+    console.log(filterList)
+    
     const disponibilidad = (producto) => {
         if (producto.stockQuantity > 0) {
             return <div>Hay productos disponibles</div>;
@@ -53,17 +61,88 @@ function Products() {
                 >
                     {/* TRAER TODOS LOS PRODUCTOS. LIMPIAR FILTRO */}
                     <Button
-                        onClick={getProductList}
+                        onClick={
+                            () => setCategoria('')
+                        }
                     >
                         Todos
+                    </Button>
+                    {/* TRAER SOLO PRODUCTOS CUYA CATEGORIA SEA WARDROBE */}
+                    <Button
+                        onClick={
+                            () => {
+                                setCategoria('wardrobe')
+                                //setProductos(productos.filter(producto => producto.category.includes('wardrobe')))
+                            }
+                        }
+                    >
+                        Wardrobes
+                    </Button>
+                    {/* TRAER SOLO PRODUCTOS CUYA CATEGORIA SEA BEDS */}
+                    <Button
+                        onClick={
+                            () => {
+                                setCategoria('beds')
+                                //setProductos(productos.filter(producto => producto.category.includes('beds')))
+                            }
+                        }
+                    >
+                        Beds
+                    </Button>
+                    {/* TRAER SOLO PRODUCTOS CUYA CATEGORIA SEA MATTRESSES */}
+                    <Button
+                        onClick={
+                            () => {
+                                setCategoria('mattresses')
+                                //setProductos(productos.filter(producto => producto.category.includes('mattresses')))
+                            }
+                        }
+                    >
+                        Mattresses
                     </Button>
                     {/* TRAER SOLO PRODUCTOS CUYA CATEGORIA SEA DRESSERS */}
                     <Button
                         onClick={
-                            () => setProductos(productos.filter(producto => producto.category.includes('dressers')))
+                            () => {
+                                setCategoria('dressers')
+                                //setProductos(productos.filter(producto => producto.category.includes('dressers')))
+                            }
                         }
                     >
                         Dressers
+                    </Button>
+                    {/* TRAER SOLO PRODUCTOS CUYA CATEGORIA SEA DRAWERS */}
+                    <Button
+                        onClick={
+                            () => {
+                                setCategoria('drawers')
+                                //setProductos(productos.filter(producto => producto.category.includes('drawers')))
+                            }
+                        }
+                    >
+                        Drawers
+                    </Button>
+                    {/* TRAER SOLO PRODUCTOS CUYA CATEGORIA SEA CHAIRS */}
+                    <Button
+                        onClick={
+                            () => {
+                                setCategoria('chairs')
+                                //setProductos(productos.filter(producto => producto.category.includes('chairs')))
+                            }
+                        }
+                    >
+                        Chairs
+                    </Button>
+                    {/* TRAER SOLO PRODUCTOS CUYA CATEGORIA SEA ARMCHAIRS */}
+                    <Button
+                        onClick={
+                            () => {
+                                setCategoria('armchairs')
+                                //setProductos(productos.filter(producto => producto.category.includes('armchairs')))
+                            }
+                        }
+                    >
+                        Armchairs
                     </Button>
                 </Grid>
                 <Grid container
@@ -78,15 +157,15 @@ function Products() {
                         gap: 4
                     }}
                 >
-                    {productos.map((producto) => (
+                    {filterList.map((producto) => (
                         <Grid item
                             key={producto._id}
                         >
-                            <Card 
-                                sx={{ 
+                            <Card
+                                sx={{
                                     maxWidth: 345,
                                     minWidth: 345,
-                                    maxHeight: 345 
+                                    maxHeight: 345
                                 }}
                             >
                                 <CardMedia
