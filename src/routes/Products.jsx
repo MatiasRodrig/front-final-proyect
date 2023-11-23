@@ -33,19 +33,6 @@ function Products() {
 
     return (
         <>
-           {/*  {productos.map((producto) => (
-                <div key={producto.id}>
-                    <Link to={`/product/${producto.id}`}>
-                        <div>{producto.name}</div>
-                        <img src={producto.image} alt={producto.name} />
-                        <div>{producto.price}</div>
-                        <div>{producto.rating}</div>
-                        <div>{producto.category}</div>
-                        <div>{producto.description}</div>
-                        {disponibilidad(producto)}
-                    </Link>
-                </div>
-            ))} */}
            <Grid container
                 xs={12}
                 sx={{
@@ -67,12 +54,12 @@ function Products() {
                             title={producto.name}
                         />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                            {producto.name}
+                            <Typography gutterBottom variant="h6" component="div">
+                                {(producto.name).substring(0, 50).concat('...')}
                             </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                            {producto.description}
-                            </Typography>
+                           {/*  <Typography variant="body2" color="text.secondary">
+                                {(producto.description).substring(0, 100).concat('...')}
+                            </Typography> */}
                         </CardContent>
                         <CardActions
                             sx={{
@@ -85,7 +72,7 @@ function Products() {
                             <Typography variant="body2" color="text.secondary">
                                 {disponibilidad(producto)}
                             </Typography>
-                            <Button size="small">Add to cart</Button>
+                            <Button size="small" href={`/product/${producto._id}`}>Ver producto</Button>
                         </CardActions>
                     </Card>
                 </Grid>
