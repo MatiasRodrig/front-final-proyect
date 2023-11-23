@@ -81,7 +81,6 @@ function Products() {
                         onClick={
                             () => {
                                 setCategoria('wardrobe')
-                                //setProductos(productos.filter(producto => producto.category.includes('wardrobe')))
                             }
                         }
                     >
@@ -92,7 +91,6 @@ function Products() {
                         onClick={
                             () => {
                                 setCategoria('beds')
-                                //setProductos(productos.filter(producto => producto.category.includes('beds')))
                             }
                         }
                     >
@@ -103,7 +101,6 @@ function Products() {
                         onClick={
                             () => {
                                 setCategoria('mattresses')
-                                //setProductos(productos.filter(producto => producto.category.includes('mattresses')))
                             }
                         }
                     >
@@ -114,7 +111,6 @@ function Products() {
                         onClick={
                             () => {
                                 setCategoria('dressers')
-                                //setProductos(productos.filter(producto => producto.category.includes('dressers')))
                             }
                         }
                     >
@@ -125,7 +121,6 @@ function Products() {
                         onClick={
                             () => {
                                 setCategoria('drawers')
-                                //setProductos(productos.filter(producto => producto.category.includes('drawers')))
                             }
                         }
                     >
@@ -136,7 +131,6 @@ function Products() {
                         onClick={
                             () => {
                                 setCategoria('chairs')
-                                //setProductos(productos.filter(producto => producto.category.includes('chairs')))
                             }
                         }
                     >
@@ -147,7 +141,6 @@ function Products() {
                         onClick={
                             () => {
                                 setCategoria('armchairs')
-                                //setProductos(productos.filter(producto => producto.category.includes('armchairs')))
                             }
                         }
                     >
@@ -174,21 +167,24 @@ function Products() {
                                 sx={{
                                     maxWidth: 345,
                                     minWidth: 345,
-                                    maxHeight: 345
+                                    maxHeight: 345,
+                                    background: 'none',
+                                    boxShadow: 'none',
                                 }}
                             >
                                 <CardMedia
-                                    sx={{ height: 140 }}
+                                    sx={{ 
+                                        height: 200,
+                                        borderRadius: '1em',
+                                        overflow: 'hidden'
+                                    }}
                                     image={producto.image}
                                     title={producto.name}
                                 />
                                 <CardContent>
-                                    <Typography gutterBottom variant="h6" component="div">
+                                    <Typography gutterBottom variant="body1" fontWeight={"bold"}>
                                         {(producto.name).substring(0, 50).concat('...')}
                                     </Typography>
-                                    {/*  <Typography variant="body2" color="text.secondary">
-                                    {(producto.description).substring(0, 100).concat('...')}
-                                </Typography> */}
                                 </CardContent>
                                 <CardActions
                                     sx={{
