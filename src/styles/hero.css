@@ -132,6 +132,11 @@
     transform: scale(1.2);
 }
 
+.hero-container {
+  background: linear-gradient(75deg, rgba(237, 241, 250, 1) 81%, rgba(226, 174, 234, 1) 96%);
+}
+
+
 @media screen and (max-width: 900px) {
     .hero-container {
         flex-direction: column;
