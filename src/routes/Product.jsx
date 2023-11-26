@@ -168,10 +168,10 @@ const Product = () => {
                             >
                                 <Button
                                     variant="contained"
-                                    onClick={handleIncrement}
+                                    onClick={handleDecrement}
                                     sx={{
                                         background: 'none',
-                                        color: '#616161',
+                                        color: '#616161',                                        
                                         mr: '2.5em',
                                         '&:hover': {
                                             background: 'none',
@@ -179,7 +179,7 @@ const Product = () => {
                                         }
                                     }}
                                 >
-                                    +
+                                    -
                                 </Button>
                                 <InputBase
                                     placeholder="Cantidad"
@@ -195,7 +195,7 @@ const Product = () => {
                                 />
                                 <Button
                                     variant="contained"
-                                    onClick={handleDecrement}
+                                    onClick={handleIncrement}
                                     sx={{
                                         background: 'none',
                                         color: '#616161',
@@ -205,7 +205,7 @@ const Product = () => {
                                         }
                                     }}
                                 >
-                                    -
+                                    +
                                 </Button>
                             </Grid>
                             <Grid
@@ -241,7 +241,7 @@ const Product = () => {
                                         border: '1px solid black'
                                     }}
                                 >
-                                    Ir al carrito ya
+                                    Comprar ya
                                 </Button>
                             </Grid>
                         </CardContent>
