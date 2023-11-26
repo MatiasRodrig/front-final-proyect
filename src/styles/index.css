@@ -14,3 +14,8 @@
   -webkit-text-size-adjust: 100%;
 }
 
+
+body {
+  background: linear-gradient(241deg, rgba(237, 241, 250, 1) 81%, rgba(226, 174, 234, 1) 96%);
+}
+
