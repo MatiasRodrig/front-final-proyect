@@ -21,7 +21,7 @@ const Login = () => {
     signIn(email, password)
       .then((res) => {
         window.sessionStorage.setItem('token', res.data.token);
-        navigate('/cart');
+        navigate('/');
       })
     .catch ((error) => {
       //TOAST PARA EL ERROR: USUARIO NO ENCONTRADO

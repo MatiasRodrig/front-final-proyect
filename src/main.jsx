@@ -58,7 +58,7 @@ import Product from './routes/Product';
         },
 
         {
-            path: "/cart",
+            path: "/cart/:cartId",
             element: <Cart />,
             errorElement: <h1>Error</h1>
         }

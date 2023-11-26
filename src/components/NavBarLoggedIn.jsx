@@ -47,7 +47,7 @@ const NavBarLoggedIn = () => {
 
     return (
         <Grid
-            sx={{
+            /* sx={{
                 background: 'rgb(255, 255, 255)',
                 borderBottom: '1px solid #e1e1e1',
                 display: 'flex',
@@ -56,6 +56,9 @@ const NavBarLoggedIn = () => {
                 py: '1.5em',
                 px: '4em',
                 width: '100vw'
+            }} */
+            sx={{
+                pt: '.7em'
             }}
         >
             <Grid item
@@ -66,7 +69,7 @@ const NavBarLoggedIn = () => {
                 }}
             >
                 <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center', height: 35 }}>
-                    <Tooltip title="Account settings">
+                    <Tooltip title="Cerrar sesión">
                         <IconButton
                             onClick={handleClick}
                             size="small"
