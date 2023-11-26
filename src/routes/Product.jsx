@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { getProductById } from "../api/apis";
 import Breadcrumb from "../components/Breadcrumb";
 
-import { Card, CardActions, CardContent, CardMedia, Button, Typography, Grid } from '@mui/material';
+import { Box, Button, CardContent, CardMedia, Grid, InputBase, InputLabel, Rating, Typography } from '@mui/material';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -15,16 +15,46 @@ const Product = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState('');
 
+    const [value, setValue] = useState(2.5);
+    const [quantity, setQuantity] = useState(1);
+
     const GetProduct = () => {
         getProductById(productId)
             .then((res) => {
                 setProduct(res.data);
+                setValue(res.data.rating || 2.5);
             })
     }
 
     useEffect(() => {
         GetProduct();
     }, []);
+
+    const handleQuantityChange = (newQuantity) => {
+        if (newQuantity >= 0 && newQuantity <= product.stockQuantity) {
+            setQuantity(newQuantity);
+        }
+    };
+
+    const handleIncrement = () => {
+        handleQuantityChange(quantity + 1);
+    };
+
+    const handleDecrement = () => {
+        if (quantity > 0) {
+            handleQuantityChange(quantity - 1);
+        } else {
+            handleQuantityChange(0);
+        }
+    };
+
+    const handleQuantity = (e) => {
+        if (e.key === 'Plus') {
+            handleIncrement();
+        } else if (e.key === 'Less') {
+            handleDecrement();
+        }
+    };
 
     return (
         <Grid container
@@ -36,7 +66,7 @@ const Product = () => {
             <Grid item container
                 xs={12}
                 sx={{
-                    display: "flex",                    
+                    display: "flex",
                     justifyContent: "center",
                     px: '2em'
                 }}
@@ -94,7 +124,7 @@ const Product = () => {
                                 fontFamily: 'Roboto, sans-serif',
                             }}
                         >
-                            <Typography gutterBottom variant="h5" 
+                            <Typography gutterBottom variant="h5"
                                 sx={{
                                     mb: '1em',
                                     color: '#31312f'
@@ -102,7 +132,7 @@ const Product = () => {
                             >
                                 <b>{product.name}</b>
                             </Typography>
-                            <Typography variant="body1" 
+                            <Typography variant="body1"
                                 sx={{
                                     mb: '1em',
                                     textAlign: 'justify',
@@ -111,7 +141,7 @@ const Product = () => {
                             >
                                 {product.description}
                             </Typography>
-                            <Typography variant="h4" 
+                            <Typography variant="h4"
                                 sx={{
                                     my: '1em',
                                     textAlign: 'start',
@@ -121,14 +151,99 @@ const Product = () => {
                             >
                                 ${product.price}
                             </Typography>
-                            <Typography variant="body1"
+                            <Box
                                 sx={{
-                                    mb: '1em',
-                                    color: '#979aa5'
+                                    '& > legend': { mt: 2 },
+                                    pb: '2em'
                                 }}
                             >
-                                Rating: {product.rating}
-                            </Typography>
+                                <Rating name="half-rating-read" value={value} precision={0.5} readOnly />
+                            </Box>
+                            <Grid
+                                sx={{
+                                    pb: '2em',
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                }}
+                            >
+                                <Button
+                                    variant="contained"
+                                    onClick={handleIncrement}
+                                    sx={{
+                                        background: 'none',
+                                        color: '#616161',
+                                        mr: '2.5em',
+                                        '&:hover': {
+                                            background: 'none',
+                                            color: 'black'
+                                        }
+                                    }}
+                                >
+                                    +
+                                </Button>
+                                <InputBase
+                                    placeholder="Cantidad"
+                                    type="number"
+                                    value={quantity}
+                                    onChange={(e) => handleQuantityChange(Number(e.target.value))}
+                                    inputProps={{
+                                        step: 1,
+                                        min: 0,
+                                        max: product.stockQuantity,
+                                        onKeyDown: handleQuantity,
+                                    }}
+                                />
+                                <Button
+                                    variant="contained"
+                                    onClick={handleDecrement}
+                                    sx={{
+                                        background: 'none',
+                                        color: '#616161',
+                                        '&:hover': {
+                                            background: 'none',
+                                            color: 'black'
+                                        }
+                                    }}
+                                >
+                                    -
+                                </Button>
+                            </Grid>
+                            <Grid
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    justifyContent: 'space-between',
+                                    alignContent: 'center',
+                                    gap: '1em'
+                                }}
+                            >
+                                {/* Solo añade el producto. TODO */}
+                                <Button
+                                    sx={{
+                                        px: '2.5em',
+                                        py: '1em',
+                                        color: 'white',
+                                        background: 'black',
+                                        '&:hover': {
+                                            background: '#212132'
+                                        }
+                                    }}
+                                >
+                                    Añadir al carrito
+                                </Button>
+                                {/* Añade el producto y retorna la page cart. TODO */}
+                                <Button
+                                    sx={{
+                                        px: '2.5em',
+                                        py: '1em',
+                                        color: 'black',
+                                        background: 'none',
+                                        border: '1px solid black'
+                                    }}
+                                >
+                                    Ir al carrito ya
+                                </Button>
+                            </Grid>
                         </CardContent>
                     </Grid>
                 </Grid>

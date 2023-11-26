@@ -28,6 +28,8 @@ function Products() {
             });
     }
 
+    console.log(count)
+
     useEffect(() => {
         getProductList();
     }, [page]);
