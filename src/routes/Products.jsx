@@ -199,7 +199,11 @@ function Products() {
                                     <Typography variant="body2" color="text.secondary">
                                         {disponibilidad(producto)}
                                     </Typography>
-                                    <Button size="small" href={`/product/${producto._id}`}>Ver producto</Button>
+                                    <Button size="small" /* href={`/product/${producto._id}`} */ >
+                                        <Link to={`/product/${producto._id}`}>
+                                            Ver producto
+                                        </Link>
+                                    </Button>
                                 </CardActions>
                             </Card>
                         </Grid>
