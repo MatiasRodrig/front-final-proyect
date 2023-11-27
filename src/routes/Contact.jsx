@@ -1,8 +1,24 @@
-import React from 'react';
+
 import '../styles/contact.css'
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer'
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 function Contact() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_f13xfp7', 'template_oqauavd', form.current, 'zwO2JXUOpU45vGmWr')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+  };
+
   return (
     <>
       <Navbar />
@@ -11,15 +27,15 @@ function Contact() {
           <h1>Contacto</h1>
           <p>¡Contáctanos para cualquier pregunta o comentario!</p>
         </div>
-        <div className="contact-form">
+        <form ref={form} onSubmit={sendEmail} className="contact-form">
           <div className="form-group">
             <label className='label-container' htmlFor="name">Nombre:</label>
-            <input type="text" id="name" name="name" />
+            <input type="text" id="name" name="user_name" />
           </div>
 
           <div className="form-group">
             <label className='label-container' htmlFor="email">Correo Electrónico:</label>
-            <input type="email" id="email-contact" name="email" />
+            <input type="email" id="email-contact" name="user_email" />
           </div>
 
           <div className="form-group">
@@ -27,9 +43,10 @@ function Contact() {
             <textarea id="message" name="message" rows="4" />
           </div>
 
-          <button className='contact-button-send' type="submit">Enviar</button>
-        </div>
+          <input type="submit" className='contact-button-send' value='Enviar' />
+        </form>
       </div>
+      <Footer/>
     </>
   );
 }

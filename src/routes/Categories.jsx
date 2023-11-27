@@ -73,7 +73,7 @@ export default function Categories() {
         <>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
-                <AppBar position="absolute" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+                <AppBar position="absolute" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, backgroundColor: '#EDF1FA' }}>
 
                     <Navbar />
 
