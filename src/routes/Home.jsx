@@ -1,6 +1,6 @@
 import React from 'react';
 import Hero from '../components/Hero'
-import Collection from '../components/StylishCollection'
+//import Collection from '../components/StylishCollection'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -13,9 +13,9 @@ function Home() {
             <Hero />
         </div>
 
-        <div className="stylish-collection">
+        {/* <div className="stylish-collection">
             <Collection />
-        </div>
+        </div> */}
         <Products/>
         <Footer />
     </>;
