@@ -19,7 +19,8 @@ const BreadcrumbCart = ({cartId}) => {
         <Link
           underline="hover"
           color="text.primary"
-          to={`/cart/${cartId}`}
+         /*  to={`/cart/${cartId}`} */
+          to={'/cart'}
           aria-current="page"
         >
           My Cart
