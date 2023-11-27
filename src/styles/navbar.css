@@ -50,8 +50,7 @@
 .icon a img {
   width: 60%;
   margin-top: 8px;
-  filter: invert(20%) sepia(100%) saturate(2382%) hue-rotate(292deg)
-    brightness(97%) contrast(105%);
+  filter: invert(20%) sepia(100%) saturate(2382%) hue-rotate(292deg) brightness(97%) contrast(105%);
   margin-left: 60px;
 }
 
@@ -167,4 +166,77 @@
 
 .bttn.active {
   white-space: nowrap;
+}
+
+.menu-hamburger {
+  display: none;
+}
+
+@media screen and (max-width: 1100px) {
+  .right-container-navbar {
+    flex-direction: column;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login-register {
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+    align-items: center;
+  }
+
+  .login-register.active {
+    display: flex;
+    margin: 0;
+  }
+
+  .login {
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu-hamburger {
+    display: block;
+    color: #121115;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .right-container-navbar.active {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+  }
+
+  .register {
+    border: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  @keyframes scale-up-right {
+    0% {
+      transform: scale(0.5);
+      transform-origin: right center;
+    }
+
+    100% {
+      transform: scale(1);
+      transform-origin: right center;
+    }
+  }
 }

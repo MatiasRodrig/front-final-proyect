@@ -8,6 +8,7 @@ import Contact from './routes/Contact';
 import Login from './routes/Login'
 import Register from './routes/Register'
 import Products from './routes/Products'
+import Categories from './routes/Categories';
 
 import './styles/index.css';
 import './styles/App.css'
@@ -60,6 +61,11 @@ import Product from './routes/Product';
         {
             path: "/cart",
             element: <Cart />,
+            errorElement: <h1>Error</h1>
+        },
+        {
+            path: '/categories',
+            element: <Categories />,
             errorElement: <h1>Error</h1>
         }
 

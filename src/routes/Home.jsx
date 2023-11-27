@@ -16,7 +16,7 @@ function Home() {
         <div className="stylish-collection">
             <Collection />
         </div>
-        <Products/>
+        <Products />
         <Footer />
     </>;
 }

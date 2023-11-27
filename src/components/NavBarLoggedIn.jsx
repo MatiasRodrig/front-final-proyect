@@ -7,7 +7,7 @@ import { Avatar, Box, Divider, Grid, ListItemIcon, Menu, MenuItem, Tooltip } fro
 import IconButton from '@mui/material/IconButton'
 import Logout from '@mui/icons-material/Logout'
 
-const NavBarLoggedIn = () => {
+const LoggedIn = () => {
     const [userEmail, setUserEmail] = useState('');
     const [anchorEl, setAnchorEl] = useState(null);
     const [open, setOpen] = useState(false);
@@ -47,7 +47,7 @@ const NavBarLoggedIn = () => {
 
     return (
         <Grid
-            sx={{
+           /* sx={{
                 background: 'rgb(255, 255, 255)',
                 borderBottom: '1px solid #e1e1e1',
                 display: 'flex',
@@ -56,6 +56,9 @@ const NavBarLoggedIn = () => {
                 py: '1.5em',
                 px: '4em',
                 width: '100vw'
+            }} */
+            sx={{
+                pt: '.7em'
             }}
         >
             <Grid item
@@ -107,4 +110,4 @@ const NavBarLoggedIn = () => {
     );
 }
 
-export default NavBarLoggedIn;
+export default LoggedIn;

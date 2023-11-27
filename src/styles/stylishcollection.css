@@ -1,5 +1,5 @@
 .collection {
-    padding: 100px 60px;
+    padding: 100px 75px;
     background-color: #eef2fb;
 }
 
@@ -12,7 +12,7 @@
 .collection > p {
     font-size: 25px;
     width: 60%;
-    color: #cbced5;
+    color: #999999;
 }
 
 .collection-buttons {
@@ -26,22 +26,67 @@
     text-decoration: none;
     cursor: pointer;
     border: none;
-    border-radius: 20px;
+    border-radius: 50px;
     background-color: #cbced5;
 }
 
-.collection-grid{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 40px;
-    width: 91%;
+.collection-buttons > button:hover {
+  background-color: #000000;
 }
 
-.collection-grid > div {
-    width: 250px;
-    height: 250px;
-    background-color: black;
-    margin-bottom: 40px ;
+.collection-buttons > button > a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.collection-buttons > button > a:hover{
+  color: #cbced5;
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Establece columnas automáticas con un ancho mínimo de 180px */
+  grid-gap: 40px 20px;
+  margin: 50px 75px 50px 0;
+}
+
+
+.product-item {
+  margin-bottom: 0;
+}
+
+.product-item button {
+  width: 100%;
+  text-align: left;
+  border: none;
+}
+
+.product-item img {
+  max-width: 100%;
+  height: 200px;
+  /* display: block; */
+  border-radius: 25px;
+  /* overflow: hidden; */
+  /* object-fit: contain; */
+}
+
+.product-item a {
+  text-decoration: none;
+  color: #999999;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #eef2fb;
+}
+
+.product-item h3 {
+  margin: 20px 0;
+}
+
+.product-item p {
+  color: #000000;
+  font-weight: bold;
+  font-size: 18px;
+  width: 100%;
 }

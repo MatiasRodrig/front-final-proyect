@@ -11,6 +11,7 @@ import Login from './routes/Login';
 import Register from './routes/Register';
 import Product from './routes/Product';
 import Cart from './routes/Cart';
+import Categories from './routes/Categories';
 
 import AuthRoute from './routes/AuthRoute';
 
@@ -57,6 +58,16 @@ function App() {
         </AuthRoute>
       )
     },
+
+    {
+      path: '/categories',
+      element: (
+        <AuthRoute>
+          <Categories />
+        </AuthRoute>
+        ),
+    }
+
   ])
 
   return (
