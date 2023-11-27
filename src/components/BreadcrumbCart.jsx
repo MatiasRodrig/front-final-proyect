@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { Breadcrumbs, Grid, Link } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { Breadcrumbs, Grid } from '@mui/material';
 
-const BreadcrumbCart = ({name, id}) => {
+const BreadcrumbCart = ({cartId}) => {
   const handleClick = (event) => {
     if (event.currentTarget.getAttribute('href')) {
       event.preventDefault();
@@ -12,13 +13,13 @@ const BreadcrumbCart = ({name, id}) => {
   return (
     <div role="presentation" onClick={handleClick}>
       <Breadcrumbs aria-label="breadcrumb">
-        <Link underline="hover" color="inherit" href="/">
+        <Link underline="hover" color="inherit" to="/">
           Home
         </Link>
         <Link
           underline="hover"
           color="text.primary"
-          href={`/cart`}
+          to={`/cart/${cartId}`}
           aria-current="page"
         >
           My Cart

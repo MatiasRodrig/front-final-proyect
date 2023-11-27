@@ -87,7 +87,9 @@ const Cart = () => {
                     <Grid item
                         xs={8}
                     >
-                        <Breadcrumb />
+                        <Breadcrumb 
+                            cart={cartId}
+                        />
                     </Grid>
                 </Grid>
                 <Grid item container

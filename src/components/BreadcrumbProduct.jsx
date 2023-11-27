@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Breadcrumbs, Grid, Link } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { Breadcrumbs, Grid} from '@mui/material';
 
 const Breadcrumb = ({name, id}) => {
   const handleClick = (event) => {
@@ -12,20 +13,20 @@ const Breadcrumb = ({name, id}) => {
   return (
     <div role="presentation" onClick={handleClick}>
       <Breadcrumbs aria-label="breadcrumb">
-        <Link underline="hover" color="inherit" href="/">
+        <Link underline="hover" color="inherit" to="/">
           Home
         </Link>
         <Link
           underline="hover"
           color="inherit"
-          href="/products"
+          to="/products"
         >
           List of Products
         </Link>
         <Link
           underline="hover"
           color="text.primary"
-          href={`/product/${id}`}
+          to={`/product/${id}`}
           aria-current="page"
         >
           {(name && name.substring(0, 20)) ? name.substring(0, 20).concat('...') : ''}
