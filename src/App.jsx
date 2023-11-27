@@ -9,6 +9,7 @@ import About from './routes/About';
 import Contact from './routes/Contact';
 import Login from './routes/Login';
 import Register from './routes/Register';
+import Products from './routes/Products';
 import Product from './routes/Product';
 import Cart from './routes/Cart';
 
@@ -41,6 +42,11 @@ function App() {
     {
       path: "/register",
       element: <Register />
+    },
+
+    {
+      path: "/products",
+      element: <Products/>
     },
 
     {
