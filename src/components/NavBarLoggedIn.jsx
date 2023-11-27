@@ -47,11 +47,7 @@ const LoggedIn = () => {
 
     return (
         <Grid
-<<<<<<< HEAD
            /* sx={{
-=======
-            /* sx={{
->>>>>>> e9cb89030afcc5a3885054d4c714e49587d27a39
                 background: 'rgb(255, 255, 255)',
                 borderBottom: '1px solid #e1e1e1',
                 display: 'flex',

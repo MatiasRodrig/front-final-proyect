@@ -94,14 +94,7 @@ function Navbar() {
                                             <Link to={'/'}>Regresar al Inicio</Link>
                                         </li>
                                         <li className="bttn-open">
-<<<<<<< HEAD
                                             <Link to={'/categories'}>Categorias</Link>
-=======
-                                            <Link to={'/premium'}>Nuestra colección premium</Link>
-                                        </li>
-                                        <li className="bttn-open">
-                                            <Link to={'/ofertas'}>Ofertas</Link>
->>>>>>> e9cb89030afcc5a3885054d4c714e49587d27a39
                                         </li>
                                     </ul>
                                 )}
@@ -202,20 +195,12 @@ function Navbar() {
                     </div>
                 </div>
 
-<<<<<<< HEAD
                 <div
-=======
-                {/* <div
->>>>>>> e9cb89030afcc5a3885054d4c714e49587d27a39
                     className={`menu-hamburger ${menuActive ? "active" : ""}`}
                     onClick={toggleMenu}
                 >
                     <FiAlignJustify />
-<<<<<<< HEAD
                 </div>
-=======
-                </div> */}
->>>>>>> e9cb89030afcc5a3885054d4c714e49587d27a39
 
             </section>
         </>
