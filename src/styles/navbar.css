@@ -7,7 +7,7 @@
 .navbar-container {
   display: flex;
   justify-content: space-evenly;
-  background-color: #eef2fb;
+  /* background-color: #eef2fb; */
   padding: 18px 0 25px;
   align-items: center;
   height: 110px;

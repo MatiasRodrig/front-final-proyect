@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Breadcrumbs, Grid, Link } from '@mui/material';
 
-const Breadcrumb = ({name, id}) => {
+const BreadcrumbCart = ({name, id}) => {
   const handleClick = (event) => {
     if (event.currentTarget.getAttribute('href')) {
       event.preventDefault();
@@ -17,22 +17,15 @@ const Breadcrumb = ({name, id}) => {
         </Link>
         <Link
           underline="hover"
-          color="inherit"
-          href="/"
-        >
-          List of Products
-        </Link>
-        <Link
-          underline="hover"
           color="text.primary"
-          href={`/product/${id}`}
+          href={`/cart`}
           aria-current="page"
         >
-          {(name && name.substring(0, 20)) ? name.substring(0, 20).concat('...') : ''}
+          My Cart
         </Link>
       </Breadcrumbs>
     </div>
   );
 }
 
-export default Breadcrumb;
+export default BreadcrumbCart;

@@ -47,7 +47,11 @@ const LoggedIn = () => {
 
     return (
         <Grid
+<<<<<<< HEAD
            /* sx={{
+=======
+            /* sx={{
+>>>>>>> e9cb89030afcc5a3885054d4c714e49587d27a39
                 background: 'rgb(255, 255, 255)',
                 borderBottom: '1px solid #e1e1e1',
                 display: 'flex',
@@ -69,7 +73,7 @@ const LoggedIn = () => {
                 }}
             >
                 <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center', height: 35 }}>
-                    <Tooltip title="Account settings">
+                    <Tooltip title="Cerrar sesión">
                         <IconButton
                             onClick={handleClick}
                             size="small"

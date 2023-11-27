@@ -51,10 +51,10 @@ function App() {
     
     // RUTA AUTENTICADA
     {
-      path: '/cart',
+      path: '/cart/:cartId',
       element: (
         <AuthRoute>
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/cart/:cartId" element={<Cart />} />
         </AuthRoute>
       )
     },
