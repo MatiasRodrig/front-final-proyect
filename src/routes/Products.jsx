@@ -35,9 +35,8 @@ function Products() {
     }, [page]);
 
     useEffect(() => {
-        console.log(categoria)
         setFilterList(productos.filter(producto => producto.category.includes(categoria)));
-    }, [categoria]);
+    }, [categoria, productos]);
 
     console.log(filterList)
 

@@ -12,6 +12,7 @@ import Register from './routes/Register';
 import Products from './routes/Products';
 import Product from './routes/Product';
 import Cart from './routes/Cart';
+import Categories from './routes/Categories';
 
 import AuthRoute from './routes/AuthRoute';
 
@@ -63,6 +64,16 @@ function App() {
         </AuthRoute>
       )
     },
+
+    {
+      path: '/categories',
+      element: (
+        <AuthRoute>
+          <Categories />
+        </AuthRoute>
+        ),
+    }
+
   ])
 
   return (
