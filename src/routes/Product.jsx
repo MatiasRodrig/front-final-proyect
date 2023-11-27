@@ -236,7 +236,7 @@ const Product = () => {
                                 </Button>
                                 <InputBase
                                     placeholder="Cantidad"
-                                    type="number"
+                                    type="tel"
                                     value={quantity}
                                     onChange={(e) => handleQuantityChange(Number(e.target.value))}
                                     inputProps={{
@@ -244,6 +244,9 @@ const Product = () => {
                                         min: 0,
                                         max: product.stockQuantity,
                                         onKeyDown: handleQuantity,
+                                    }}
+                                    sx={{
+                                        width: '3em'
                                     }}
                                 />
                                 <Button
