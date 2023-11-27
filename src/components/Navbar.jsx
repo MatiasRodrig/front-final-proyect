@@ -113,10 +113,10 @@ function Navbar() {
                                 {showDropdown.mueblesHogar && (
                                     <ul className="dropdown">
                                         <li className="bttn-open">
-                                            <Link to={''}>Camas</Link>
+                                            <Link to={'/categories'}>Camas</Link>
                                         </li>
                                         <li className="bttn-open">
-                                            <Link to={''}>Placards</Link>
+                                            <Link to={'/categories'}>Placards</Link>
                                         </li>
                                     </ul>
                                 )}
@@ -135,13 +135,13 @@ function Navbar() {
                                 {showDropdown.salaEstar && (
                                     <ul className="dropdown">
                                         <li className="bttn-open">
-                                            <Link to={''}>Sofas</Link>
+                                            <Link to={'/categories'}>Sofas</Link>
                                         </li>
                                         <li className="bttn-open">
-                                            <Link to={''}>Sillones</Link>
+                                            <Link to={'/categories'}>Sillones</Link>
                                         </li>
                                         <li className="bttn-open">
-                                            <Link to={''}>Sillas</Link>
+                                            <Link to={'/categories'}>Sillas</Link>
                                         </li>
                                     </ul>
                                 )}

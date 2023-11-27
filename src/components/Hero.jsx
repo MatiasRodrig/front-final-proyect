@@ -21,20 +21,20 @@ function Hero() {
                 </div>
                 <div className="right-hero-container">
                     <div className="superior-right-container">
-                        <Link>
+                        <Link to={'/product/6563f53d090069e595c1c154'}>
                         <div className="hero-images1">
                             <div className="new-button">Nuevo</div>
                             <img src={Design} alt="" className='img-design'/>
                             </div>
                         </Link>
-                        <Link>
+                        <Link to={'/product/6563f532090069e595c1c152'}>
                         <div className="hero-images2">
                             <div className="new-button">Nuevo</div>
                             <img src={Sofa} alt="" className='img-sofa'/>
                         </div>
                 </Link>
                     </div>
-                    <Link>
+                    <Link to={'/product/6563f526090069e595c1c150'}>
                     <div className="bottom-right-container">
                         <div className="hero-images3">
                             <div className="new-button-bottom">Nuevo</div>
